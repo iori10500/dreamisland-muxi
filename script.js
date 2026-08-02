@@ -76,68 +76,68 @@
   /* ---------- STAYS data ---------- */
   var STAYS = [
     {
-      cn:'罗者系列', en:'Luozhe', stars:5, img:'images/r_luozhe.jpg',
-      title:'罗者系列', enName:'The Luozhe',
-      desc:'临崖而立，180° 将苍山与洱海尽收眼底。旗舰级的开阔与从容，是山海之上最辽远的栖居。',
+      cn:'Luozhe Collection', en:'Panoramic Mountain &amp; Sea', stars:5, img:'images/r_luozhe.jpg',
+      title:'Luozhe Collection', enName:'The Luozhe',
+      desc:'Set on the cliff edge with a 180° view of Cangshan and Erhai, Luozhe is our most expansive and unhurried way to live above the landscape.',
       types:[
-        ['180° 山海揽胜旗舰大床房','Panoramic Mtn. &amp; Sea Flagship King'],
-        ['阳台山海揽景大床房','Balcony Mtn. &amp; Sea View King'],
-        ['院立露台山海观景大床房','Private Terrace Mtn. &amp; Sea King']
+        ['180° Mountain &amp; Sea Flagship King','Panoramic Flagship Room'],
+        ['Balcony Mountain &amp; Sea King','Balcony View Room'],
+        ['Private Terrace Mountain &amp; Sea King','Private Terrace Room']
       ]
     },
     {
-      cn:'碧沅系列', en:'Biyuan', stars:5, img:'images/r_biyuan.jpg',
-      title:'碧沅系列', enName:'The Biyuan',
-      desc:'水景露台与星空茶室，光影在水面与天际之间往返。一处可独享的静谧，让山海成为日常的背景。',
+      cn:'Biyuan Collection', en:'Waterscape &amp; Starlight', stars:5, img:'images/r_biyuan.jpg',
+      title:'Biyuan Collection', enName:'The Biyuan',
+      desc:'A waterscape terrace and starlit tea room where light moves between the surface and the sky. A private stillness with the mountain and lake as your backdrop.',
       types:[
-        ['水景露台山海观景套房','Waterscape Terrace Mtn. &amp; Sea Suite'],
-        ['露台山海观景星空茶室套房','Terrace Sea-View Starlight Tea Suite']
+        ['Waterscape Terrace Mountain &amp; Sea Suite','Waterscape Terrace Suite'],
+        ['Terrace Mountain &amp; Sea Starlight Tea Suite','Starlight Tea Suite']
       ]
     },
     {
-      cn:'水常系列', en:'Shuichang', stars:4.5, img:'images/r_shuichang.jpg',
-      title:'水常系列', enName:'The Shuichang',
-      desc:'院立大露台延展出生活的余地，山海景致随四季流转，于起居之间皆是风景。',
+      cn:'Shuichang Collection', en:'Terrace Living', stars:4.5, img:'images/r_shuichang.jpg',
+      title:'Shuichang Collection', enName:'The Shuichang',
+      desc:'Generous private terraces extend the living space. Mountain and lake views shift with the seasons, turning every daily ritual into a scene.',
       types:[
-        ['院立大露台山海景大床房','Lawn Private Terrace Sea-View King'],
-        ['花园露台山海观景大床房','Garden Terrace Mtn. &amp; Sea King'],
-        ['180° 山海观景大床房','180° Mountain &amp; Sea View King']
+        ['Lawn Terrace Mountain &amp; Sea King','Lawn Terrace Room'],
+        ['Garden Terrace Mountain &amp; Sea King','Garden Terrace Room'],
+        ['180° Mountain &amp; Sea View King','Panoramic View Room']
       ]
     },
     {
-      cn:'百草系列', en:'Baicao', stars:4, img:'images/r_baicao.jpg',
-      title:'百草系列', enName:'The Baicao',
-      desc:'独立露台向山林敞开，草木的气息漫入室内。质朴而温润，是栖居最本真的样子。',
+      cn:'Baicao Collection', en:'Forest &amp; Garden', stars:4, img:'images/r_baicao.jpg',
+      title:'Baicao Collection', enName:'The Baicao',
+      desc:'Private terraces open to the forest and let the scent of plants drift indoors. Simple, warm and close to the essential nature of dwelling.',
       types:[
-        ['独立露台山海揽景大床房','Private Terrace Sea-View King'],
-        ['露台山海观景大床房','Terrace Mountain &amp; Sea King'],
-        ['露台庭院大床房','Terrace Courtyard King']
+        ['Private Terrace Mountain &amp; Sea King','Private Terrace Room'],
+        ['Terrace Mountain &amp; Sea King','Terrace View Room'],
+        ['Terrace Courtyard King','Courtyard Room']
       ]
     },
     {
-      cn:'寸荷系列', en:'Cunhe', stars:3.5, img:'images/r_cunhe.jpg',
-      title:'寸荷系列', enName:'The Cunhe',
-      desc:'静卧于庭院深处，以院落为景。是繁华之外，一处可以安然独处的栖身之所。',
+      cn:'Cunhe Collection', en:'Quiet Courtyards', stars:3.5, img:'images/r_cunhe.jpg',
+      title:'Cunhe Collection', enName:'The Cunhe',
+      desc:'Quietly set deep in the courtyards, Cunhe looks inward. A calm place to be alone, away from the noise of the world.',
       types:[
-        ['院落观景大床房','Courtyard View King'],
-        ['庭院观景双床房','Courtyard View Twin'],
-        ['静谧庭院双床房','Tranquil Courtyard Twin']
+        ['Courtyard View King','Courtyard Room'],
+        ['Courtyard View Twin','Courtyard Twin'],
+        ['Tranquil Courtyard Twin','Quiet Courtyard Twin']
       ]
     },
     {
-      cn:'分松系列', en:'Fensong', stars:3, img:'images/r_fensong.jpg',
-      title:'分松系列', enName:'The Fensong',
-      desc:'松影分窗，光自缝隙落入。简练而克制，把空间还给最纯粹的休憩。',
+      cn:'Fensong Collection', en:'Pine &amp; Light', stars:3, img:'images/r_fensong.jpg',
+      title:'Fensong Collection', enName:'The Fensong',
+      desc:'Pine shadows divide the windows as light falls through the gaps. Restrained and precise, Fensong gives the room back to rest.',
       types:[
-        ['静谧院落大床房','Tranquil Courtyard King']
+        ['Tranquil Courtyard King','Quiet Courtyard Room']
       ]
     },
     {
-      cn:'同林庭院', en:'Tonglin Villa', stars:3, img:'images/r_tonglin.jpg',
-      title:'同林庭院别墅', enName:'Garden Courtyard Villa',
-      desc:'庭院晨观独栋别墅，三室一厅，自成一方天地。独立的院落与起居，是属于家人与挚友的山中居所。',
+      cn:'Tonglin Courtyard Villa', en:'A private home in the trees', stars:3, img:'images/r_tonglin.jpg',
+      title:'Tonglin Courtyard Villa', enName:'Garden Courtyard Villa',
+      desc:'A detached three-bedroom villa with its own courtyard and living room. A mountain home made for family and close friends.',
       types:[
-        ['庭院晨观独栋别墅 · 三室一厅','Detached Villa · 3 Bedrooms']
+        ['Detached Courtyard Villa · 3 Bedrooms','Private Villa']
       ]
     }
   ];
@@ -191,12 +191,96 @@
     render(0);
   }
 
+  /* ---------- enquiry form ---------- */
+  function bindEnquiry(){
+    document.querySelectorAll('[data-enquiry-form]').forEach(function(form){
+      var started = form.elements.started_at;
+      var status = form.querySelector('[data-enquiry-status]');
+      var submit = form.querySelector('button[type="submit"]');
+      if(started) started.value = String(Date.now());
+      if(!status || !submit) return;
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        status.className = 'form-status enquiry-status';
+        status.textContent = '';
+        if(!form.reportValidity()) return;
+        var data = new FormData(form);
+        var payload = Object.fromEntries(data.entries());
+        payload.interests = data.getAll('interests').join(', ');
+        var turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+        payload.turnstile_token = turnstileInput ? turnstileInput.value : '';
+        submit.disabled = true;
+        var label = submit.querySelector('span');
+        var original = label ? label.textContent : 'Send Enquiry';
+        if(label) label.textContent = 'Sending…';
+        try{
+          var response = await fetch('/api/enquiries', {
+            method:'POST',
+            headers:{'Content-Type':'application/json', 'Accept':'application/json'},
+            body:JSON.stringify(payload)
+          });
+          var result = await response.json().catch(function(){ return {}; });
+          if(!response.ok || !result.ok) throw new Error(result.error || 'failed');
+          status.className = 'form-status enquiry-status is-success';
+          status.textContent = 'Received. Your advisor will reply within 24 hours.' + (result.id ? ' · ' + result.id : '');
+          form.reset();
+          if(started) started.value = String(Date.now());
+          if(window.turnstile) window.turnstile.reset(form.querySelector('.cf-turnstile'));
+          if(typeof window.gtag === 'function'){
+            window.gtag('event', 'generate_lead', {
+              currency:'CNY', value:0, enquiry_variant:payload.variant,
+              journey_route:payload.route || 'muxidali', lead_source:payload.source || 'muxidali-home'
+            });
+          }
+        }catch(error){
+          status.className = 'form-status enquiry-status is-error';
+          if(error.message === 'rate_limited') status.textContent = 'Too many attempts. Please try again shortly.';
+          else if(error.message === 'privacy_consent' || error.message === 'required_fields' || error.message === 'invalid_email' || error.message === 'invalid_timing') status.textContent = 'Please complete the required fields and privacy consent.';
+          else if(error.message === 'verification_failed') status.textContent = 'Please complete the security check and submit again.';
+          else if(error.message === 'delivery_unavailable') status.textContent = 'The notification channel is unavailable. Please email enquiry@muxidali.com.';
+          else status.textContent = 'We could not submit this right now. Please try again or email enquiry@muxidali.com.';
+          if(window.turnstile) window.turnstile.reset(form.querySelector('.cf-turnstile'));
+        }finally{
+          submit.disabled = false;
+          if(label) label.textContent = original;
+        }
+      });
+    });
+  }
+
+  /* ---------- analytics interactions ---------- */
+  function bindAnalytics(){
+    document.addEventListener('click', function(event){
+      if(typeof window.gtag !== 'function') return;
+      var target = event.target.closest('a,button');
+      if(!target) return;
+      var href = target.getAttribute('href') || '';
+      var scrollTarget = target.getAttribute('data-scroll') || '';
+      var inlineAction = target.getAttribute('onclick') || '';
+      if(scrollTarget === '#reserve'){
+        window.gtag('event', 'reserve_section_open', {link_text:(target.textContent || '').trim()});
+      }
+      if(href.indexOf('mailto:') === 0){
+        window.gtag('event', 'contact_click', {contact_method:'email'});
+      }else if(href.indexOf('tel:') === 0 || inlineAction.indexOf('tel:') !== -1){
+        window.gtag('event', 'contact_click', {contact_method:'phone'});
+      }
+    });
+  }
+
   /* ---------- init ---------- */
   function init(){
     bindScroll();
     onScroll();
     initReveal();
     buildStays();
+    bindEnquiry();
+    bindAnalytics();
+    try{
+      var source = new URLSearchParams(location.search).get('utm_source') || document.referrer || '';
+      var ai = String(source).toLowerCase().match(/chatgpt|perplexity|copilot|gemini|claude|you\.com|meta\.ai|doubao|toutiao|bytedance/);
+      if(ai && typeof window.gtag === 'function') window.gtag('event', 'ai_referral_landing', {ai_source:ai[0], non_interaction:true});
+    }catch(_){ }
     // capture helper: ?sec=<id> brings a section to the top (works around proxied-scroll previews)
     var capSec = new URLSearchParams(location.search).get('sec');
     if(capSec){
