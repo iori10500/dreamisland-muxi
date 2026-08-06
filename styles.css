@@ -343,6 +343,27 @@ section{position:relative;}
 @media(max-width:760px){.exp-list{grid-template-columns:1fr;}}
 
 /* =========================================================
+   BEYOND DALI EDITORIAL TEASER
+   ========================================================= */
+.journey-teaser{background:var(--paper-2);overflow:hidden;}
+.journey-teaser::before{
+  content:"";position:absolute;width:42vw;height:42vw;min-width:420px;min-height:420px;
+  right:-16vw;top:-24vw;border:1px solid rgba(124,85,56,.16);border-radius:50%;
+}
+.journey-teaser-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);gap:clamp(48px,8vw,116px);align-items:center;}
+.journey-teaser-media{aspect-ratio:4/5;max-height:720px;}
+.journey-teaser-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,16,13,.42));pointer-events:none;}
+.journey-teaser-copy{position:relative;z-index:1;max-width:590px;}
+.journey-teaser-kicker{font-family:var(--serif);font-size:clamp(25px,2.7vw,42px);line-height:1.18;color:var(--clay);margin:30px 0 50px;}
+.journey-teaser-kicker em{font-weight:300;color:var(--rust);}
+.journey-teaser-copy h2{font-family:var(--serif);font-weight:300;font-size:clamp(42px,5vw,76px);line-height:.98;letter-spacing:-.015em;margin:0;color:var(--ink);}
+.journey-teaser-copy > p:not(.journey-teaser-kicker){font-size:15px;line-height:2.05;color:var(--ink-muted);max-width:530px;margin:34px 0 0;}
+.journey-text-link{display:inline-flex;align-items:center;justify-content:space-between;gap:42px;margin-top:36px;padding:15px 0 12px;min-width:min(100%,390px);border-top:1px solid var(--ink);border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:color .3s,border-color .3s;}
+.journey-text-link span{font-family:var(--serif);font-size:22px;line-height:1;transition:transform .3s var(--ease);}
+.journey-text-link:hover{color:var(--rust);border-top-color:var(--rust);}
+.journey-text-link:hover span{transform:translate(4px,-4px);}
+
+/* =========================================================
    RESERVE
    ========================================================= */
 .reserve{position:relative;overflow:hidden;color:var(--paper);}
@@ -433,6 +454,8 @@ section{position:relative;}
   .stay-panel .stay-figure{order:-1;}
   .meta-row{gap:28px;}
   .lang{display:none;}
+  .journey-teaser-grid{grid-template-columns:1fr;}
+  .journey-teaser-media{aspect-ratio:16/11;max-height:none;}
 }
 @media(max-width:640px){
   .stays-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}
@@ -443,4 +466,7 @@ section{position:relative;}
   .enquiry-form{padding:24px 20px 20px;}
   .form-grid{grid-template-columns:1fr;}
   .field-wide{grid-column:auto;}
+  .journey-teaser-kicker{margin:24px 0 34px;}
+  .journey-teaser-copy h2{font-size:clamp(39px,13vw,58px);}
+  .journey-text-link{gap:18px;line-height:1.5;}
 }
