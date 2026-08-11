@@ -1,6 +1,6 @@
-# 木夕大里 ｜ 伙山 · DREAM ISLAND
+# 木夕大里 · DREAM ISLAND
 
-木夕大里·伙山度假酒店官方网站 — Official website for Dream Island, a 21-room mountain resort above Erhai Lake in Shuanglang, Dali, Yunnan.
+木夕大里双酒店官方网站：伙山为洱海东岸山中的21间客房建筑与艺术居所，洱海为双廊水边的7间客房姐妹酒店。
 
 ## 本地预览 / Local preview
 
@@ -12,26 +12,21 @@ python3 -m http.server 8000
 # 然后访问 http://localhost:8000
 ```
 
-## 部署到 GitHub Pages / Deploy
+## 发布 / Deploy
 
-1. 新建仓库并推送本文件夹内容:
-   ```bash
-   git init
-   git add .
-   git commit -m "Dream Island official site"
-   git branch -M main
-   git remote add origin https://github.com/<你的用户名>/<仓库名>.git
-   git push -u origin main
-   ```
-2. 仓库 Settings → Pages → Source 选择 `main` 分支根目录,保存即可。
+源代码推送至 GitHub；生产环境为 Nginx 托管的纯静态文件。发布时应从已提交版本生成干净 artifact，再同步到站点目录，避免上传本地未跟踪文件。
 
 ## 结构 / Structure
 
 ```
-index.html      首页(全部内容)
-styles.css      设计系统与样式
-script.js       导航、客房标签、滚动动画
-images/         站点图片(均裁切自品牌资料)
+index.html             双酒店品牌 Landing
+landing.css/js         Landing SVG 地图与交互
+huoshan/               伙山英文页
+erhai/                  洱海英文页与独立样式
+zh/                     品牌、伙山、洱海中文页
+styles.css              Property 页面共享设计系统
+script.js               伙山导航、客房、表单与分析交互
+images/                  品牌授权图片
 ```
 
 ## 说明 / Notes

@@ -1,6 +1,7 @@
 /* ===== DREAM ISLAND · interactions ===== */
 (function(){
   'use strict';
+  var isZh = document.documentElement.lang.toLowerCase().indexOf('zh') === 0;
 
   /* ---------- smooth scroll for [data-scroll] ---------- */
   function bindScroll(){
@@ -141,6 +142,17 @@
       ]
     }
   ];
+  if(isZh){
+    STAYS = [
+      {cn:'落哲系列',en:'全景山海',stars:5,img:'images/r_luozhe.jpg',title:'落哲系列',enName:'The Luozhe',desc:'位于崖边，以180°视角展开苍山与洱海。落哲是住在风景之上最舒展、最从容的一种方式。',types:[['180°山海旗舰大床房','全景旗舰房'],['阳台山海大床房','阳台景观房'],['私享露台山海大床房','私享露台房']]},
+      {cn:'碧苑系列',en:'水景与星光',stars:5,img:'images/r_biyuan.jpg',title:'碧苑系列',enName:'The Biyuan',desc:'水景露台与星空茶室，让光线在水面与天空之间流动。山与湖成为私人安静时刻的背景。',types:[['水景露台山海套房','水景露台套房'],['露台山海星空茶室套房','星空茶室套房']]},
+      {cn:'水长系列',en:'露台生活',stars:4.5,img:'images/r_shuichang.jpg',title:'水长系列',enName:'The Shuichang',desc:'宽阔的私人露台延伸了起居空间。山湖景色随季节变化，让每天的日常都成为一幕风景。',types:[['草坪露台山海大床房','草坪露台房'],['花园露台山海大床房','花园露台房'],['180°山海景观大床房','全景房']]},
+      {cn:'百草系列',en:'森林与花园',stars:4,img:'images/r_baicao.jpg',title:'百草系列',enName:'The Baicao',desc:'私人露台向森林打开，植物的气息进入室内。简单、温暖，靠近居住最本质的样子。',types:[['私享露台山海大床房','私享露台房'],['露台山海大床房','露台景观房'],['露台庭院大床房','庭院房']]},
+      {cn:'村禾系列',en:'安静庭院',stars:3.5,img:'images/r_cunhe.jpg',title:'村禾系列',enName:'The Cunhe',desc:'藏在庭院深处，村禾的视线向内。它远离喧闹，留下一处适合独处的安静空间。',types:[['庭院景观大床房','庭院大床房'],['庭院景观双床房','庭院双床房'],['静谧庭院双床房','静谧双床房']]},
+      {cn:'分松系列',en:'松影与光',stars:3,img:'images/r_fensong.jpg',title:'分松系列',enName:'The Fensong',desc:'松影切分窗面，光从缝隙间落下。克制而准确，分松把房间重新还给休息。',types:[['静谧庭院大床房','静谧庭院房']]},
+      {cn:'桐林庭院别墅',en:'林间的私人之家',stars:3,img:'images/r_tonglin.jpg',title:'桐林庭院别墅',enName:'Garden Courtyard Villa',desc:'拥有独立庭院与起居室的三卧别墅，是为家人和亲密朋友准备的一座山中之家。',types:[['独栋庭院别墅 · 三卧室','私人别墅']]}
+    ];
+  }
 
   function starHTML(n){
     var full = Math.floor(n), half = (n - full) >= 0.5;
@@ -211,8 +223,8 @@
         payload.turnstile_token = turnstileInput ? turnstileInput.value : '';
         submit.disabled = true;
         var label = submit.querySelector('span');
-        var original = label ? label.textContent : 'Send Enquiry';
-        if(label) label.textContent = 'Sending…';
+        var original = label ? label.textContent : (isZh ? '发送咨询' : 'Send Enquiry');
+        if(label) label.textContent = isZh ? '发送中…' : 'Sending…';
         try{
           var response = await fetch('/api/enquiries', {
             method:'POST',
@@ -222,7 +234,7 @@
           var result = await response.json().catch(function(){ return {}; });
           if(!response.ok || !result.ok) throw new Error(result.error || 'failed');
           status.className = 'form-status enquiry-status is-success';
-          status.textContent = 'Received. Your advisor will reply within 24 hours.' + (result.id ? ' · ' + result.id : '');
+          status.textContent = (isZh ? '已收到。顾问将在24小时内回复。' : 'Received. Your advisor will reply within 24 hours.') + (result.id ? ' · ' + result.id : '');
           form.reset();
           if(started) started.value = String(Date.now());
           if(window.turnstile) window.turnstile.reset(form.querySelector('.cf-turnstile'));
@@ -234,11 +246,11 @@
           }
         }catch(error){
           status.className = 'form-status enquiry-status is-error';
-          if(error.message === 'rate_limited') status.textContent = 'Too many attempts. Please try again shortly.';
-          else if(error.message === 'privacy_consent' || error.message === 'required_fields' || error.message === 'invalid_email' || error.message === 'invalid_timing') status.textContent = 'Please complete the required fields and privacy consent.';
-          else if(error.message === 'verification_failed') status.textContent = 'Please complete the security check and submit again.';
-          else if(error.message === 'delivery_unavailable') status.textContent = 'The notification channel is unavailable. Please email enquiry@muxidali.com.';
-          else status.textContent = 'We could not submit this right now. Please try again or email enquiry@muxidali.com.';
+          if(error.message === 'rate_limited') status.textContent = isZh ? '尝试次数过多，请稍后再试。' : 'Too many attempts. Please try again shortly.';
+          else if(error.message === 'privacy_consent' || error.message === 'required_fields' || error.message === 'invalid_email' || error.message === 'invalid_timing') status.textContent = isZh ? '请完成必填字段并同意隐私条款。' : 'Please complete the required fields and privacy consent.';
+          else if(error.message === 'verification_failed') status.textContent = isZh ? '请完成安全验证后重新提交。' : 'Please complete the security check and submit again.';
+          else if(error.message === 'delivery_unavailable') status.textContent = isZh ? '通知通道暂不可用，请发送邮件至 enquiry@muxidali.com。' : 'The notification channel is unavailable. Please email enquiry@muxidali.com.';
+          else status.textContent = isZh ? '目前无法提交，请重试或发送邮件至 enquiry@muxidali.com。' : 'We could not submit this right now. Please try again or email enquiry@muxidali.com.';
           if(window.turnstile) window.turnstile.reset(form.querySelector('.cf-turnstile'));
         }finally{
           submit.disabled = false;
