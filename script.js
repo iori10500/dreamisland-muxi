@@ -204,11 +204,19 @@
   }
 
   /* ---------- enquiry form ---------- */
+  function applyPropertyFromUrl(form){
+    var requested = new URLSearchParams(window.location.search).get('property');
+    if(!['huoshan','erhai','flexible'].includes(requested)) return;
+    var option = form.querySelector('input[name="property"][value="'+requested+'"]');
+    if(option) option.checked = true;
+  }
+
   function bindEnquiry(){
     document.querySelectorAll('[data-enquiry-form]').forEach(function(form){
       var started = form.elements.started_at;
       var status = form.querySelector('[data-enquiry-status]');
       var submit = form.querySelector('button[type="submit"]');
+      applyPropertyFromUrl(form);
       if(started) started.value = String(Date.now());
       if(!status || !submit) return;
       form.addEventListener('submit', async function(e){
@@ -236,12 +244,14 @@
           status.className = 'form-status enquiry-status is-success';
           status.textContent = (isZh ? '已收到。顾问将在24小时内回复。' : 'Received. Your advisor will reply within 24 hours.') + (result.id ? ' · ' + result.id : '');
           form.reset();
+          applyPropertyFromUrl(form);
           if(started) started.value = String(Date.now());
           if(window.turnstile) window.turnstile.reset(form.querySelector('.cf-turnstile'));
           if(typeof window.gtag === 'function'){
             window.gtag('event', 'generate_lead', {
               currency:'CNY', value:0, enquiry_variant:payload.variant,
-              journey_route:payload.route || 'muxidali', lead_source:payload.source || 'muxidali-home'
+              journey_route:payload.route || 'muxidali', lead_source:payload.source || 'muxidali-home',
+              property_name:payload.property || 'unspecified'
             });
           }
         }catch(error){
