@@ -219,6 +219,15 @@
       applyPropertyFromUrl(form);
       if(started) started.value = String(Date.now());
       if(!status || !submit) return;
+      var formStarted = false;
+      form.addEventListener('focusin', function(){
+        if(formStarted || typeof window.gtag !== 'function') return;
+        formStarted = true;
+        window.gtag('event', 'enquiry_form_start', Object.assign({
+          journey_route: form.elements.route ? form.elements.route.value : 'muxidali',
+          lead_source: form.elements.source ? form.elements.source.value : 'muxidali-home'
+        }, window.MUXIEnquiryContext ? window.MUXIEnquiryContext() : {}));
+      });
       form.addEventListener('submit', async function(e){
         e.preventDefault();
         status.className = 'form-status enquiry-status';
@@ -226,6 +235,9 @@
         if(!form.reportValidity()) return;
         var data = new FormData(form);
         var payload = Object.fromEntries(data.entries());
+        var context = window.MUXIEnquiryContext ? window.MUXIEnquiryContext() : {};
+        Object.assign(payload, context);
+        if(!payload.discovery && context.entry_source) payload.discovery = context.entry_source;
         payload.interests = data.getAll('interests').join(', ');
         var turnstileInput = form.querySelector('[name="cf-turnstile-response"]');
         payload.turnstile_token = turnstileInput ? turnstileInput.value : '';
@@ -248,11 +260,11 @@
           if(started) started.value = String(Date.now());
           if(window.turnstile) window.turnstile.reset(form.querySelector('.cf-turnstile'));
           if(typeof window.gtag === 'function'){
-            window.gtag('event', 'generate_lead', {
+            window.gtag('event', 'generate_lead', Object.assign({
               currency:'CNY', value:0, enquiry_variant:payload.variant,
               journey_route:payload.route || 'muxidali', lead_source:payload.source || 'muxidali-home',
               property_name:payload.property || 'unspecified'
-            });
+            }, context));
           }
         }catch(error){
           status.className = 'form-status enquiry-status is-error';
