@@ -75,84 +75,165 @@
   }
 
   /* ---------- STAYS data ---------- */
-  var STAYS = [
-    {
-      cn:'Luozhe Collection', en:'Panoramic Mountain &amp; Sea', stars:5, img:'images/r_luozhe.jpg',
-      title:'Luozhe Collection', enName:'The Luozhe',
-      desc:'Set on the cliff edge with a 180° view of Cangshan and Erhai, Luozhe is our most expansive and unhurried way to live above the landscape.',
-      types:[
-        ['180° Mountain &amp; Sea Flagship King','Panoramic Flagship Room'],
-        ['Balcony Mountain &amp; Sea King','Balcony View Room'],
-        ['Private Terrace Mountain &amp; Sea King','Private Terrace Room']
+  // Room names supplied by Iori; shared Chinese/English quotation registry (16 types).
+  var ROOM_COLLECTIONS = [
+  {
+    "zh": "罗者系列",
+    "en": "Luozhe Collection",
+    "img": "images/r_luozhe.jpg",
+    "subtitleZh": "全景山海",
+    "subtitleEn": "Panoramic Mountain & Sea",
+    "stars": 5,
+    "descZh": "位于崖边，以180°视角展开苍山与洱海。罗者是住在风景之上最舒展、最从容的一种方式。",
+    "descEn": "Set on the cliff edge with a 180° view of Cangshan and Erhai, Luozhe is our most expansive and unhurried way to live above the landscape.",
+    "rooms": [
+      [
+        "罗者·1-6 独立露台山海观景大床房",
+        "Luozhe 1-6 King, Private Terrace, Mountain & Sea View"
+      ],
+      [
+        "罗者·3-2 180度山海观景旗舰大床房",
+        "Luozhe 3-2 Flagship King, 180° Mountain & Sea View"
       ]
-    },
-    {
-      cn:'Biyuan Collection', en:'Waterscape &amp; Starlight', stars:5, img:'images/r_biyuan.jpg',
-      title:'Biyuan Collection', enName:'The Biyuan',
-      desc:'A waterscape terrace and starlit tea room where light moves between the surface and the sky. A private stillness with the mountain and lake as your backdrop.',
-      types:[
-        ['Waterscape Terrace Mountain &amp; Sea Suite','Waterscape Terrace Suite'],
-        ['Terrace Mountain &amp; Sea Starlight Tea Suite','Starlight Tea Suite']
+    ]
+  },
+  {
+    "zh": "碧沅系列",
+    "en": "Biyuan Collection",
+    "img": "images/r_biyuan.jpg",
+    "subtitleZh": "水景与星光",
+    "subtitleEn": "Waterscape & Starlight",
+    "stars": 5,
+    "descZh": "水景露台与星空茶室，让光线在水面与天空之间流动。山与湖成为私人安静时刻的背景。",
+    "descEn": "A waterscape terrace and starlit tea room where light moves between the surface and the sky. A private stillness with the mountain and lake as your backdrop.",
+    "rooms": [
+      [
+        "碧沅·2-2 水景露台山海观景套房",
+        "Biyuan 2-2 Suite, Water-feature Terrace, Mountain & Sea View"
+      ],
+      [
+        "碧沅·2-9 露台山海观景星空茶室套房",
+        "Biyuan 2-9 Suite, Starry Sky Tea Room, Mountain & Sea View"
       ]
-    },
-    {
-      cn:'Shuichang Collection', en:'Terrace Living', stars:4.5, img:'images/r_shuichang.jpg',
-      title:'Shuichang Collection', enName:'The Shuichang',
-      desc:'Generous private terraces extend the living space. Mountain and lake views shift with the seasons, turning every daily ritual into a scene.',
-      types:[
-        ['Lawn Terrace Mountain &amp; Sea King','Lawn Terrace Room'],
-        ['Garden Terrace Mountain &amp; Sea King','Garden Terrace Room'],
-        ['180° Mountain &amp; Sea View King','Panoramic View Room']
+    ]
+  },
+  {
+    "zh": "水常系列",
+    "en": "Shuichang Collection",
+    "img": "images/r_shuichang.jpg",
+    "subtitleZh": "露台生活",
+    "subtitleEn": "Terrace Living",
+    "stars": 4.5,
+    "descZh": "宽阔的私人露台延伸了起居空间。山湖景色随季节变化，让每天的日常都成为一幕风景。",
+    "descEn": "Generous private terraces extend the living space. Mountain and lake views shift with the seasons, turning every daily ritual into a scene.",
+    "rooms": [
+      [
+        "水常·1-4 独立大露台山海观景大床房",
+        "Shuichang 1-4 King, Grand Private Terrace, Mountain & Sea View"
+      ],
+      [
+        "水常·2-1 露台山海观景大床房",
+        "Shuichang 2-1 King, Terrace, Mountain & Sea View"
+      ],
+      [
+        "水常·2-7 花园露台山海观景大床房",
+        "Shuichang 2-7 King, Garden Terrace, Mountain & Sea View"
+      ],
+      [
+        "水常·3-1 露台庭院观景大床房",
+        "Shuichang 3-1 King, Terrace, Courtyard View"
+      ],
+      [
+        "水常·落日山海观景大床房",
+        "Shuichang King, Sunset Mountain & Sea View"
       ]
-    },
-    {
-      cn:'Baicao Collection', en:'Forest &amp; Garden', stars:4, img:'images/r_baicao.jpg',
-      title:'Baicao Collection', enName:'The Baicao',
-      desc:'Private terraces open to the forest and let the scent of plants drift indoors. Simple, warm and close to the essential nature of dwelling.',
-      types:[
-        ['Private Terrace Mountain &amp; Sea King','Private Terrace Room'],
-        ['Terrace Mountain &amp; Sea King','Terrace View Room'],
-        ['Terrace Courtyard King','Courtyard Room']
+    ]
+  },
+  {
+    "zh": "百草系列",
+    "en": "Baicao Collection",
+    "img": "images/r_baicao.jpg",
+    "subtitleZh": "森林与花园",
+    "subtitleEn": "Forest & Garden",
+    "stars": 4,
+    "descZh": "私人露台向森林打开，植物的气息进入室内。简单、温暖，靠近居住最本质的样子。",
+    "descEn": "Private terraces open to the forest and let the scent of plants drift indoors. Simple, warm and close to the essential nature of dwelling.",
+    "rooms": [
+      [
+        "百草·1-1 独立露台山海观景大床房",
+        "Baicao 1-1 King, Private Terrace, Mountain & Sea View"
+      ],
+      [
+        "百草·露台山海观景大床房",
+        "Baicao King, Terrace, Mountain & Sea View"
+      ],
+      [
+        "百草·3-7 露台庭院景观大床房",
+        "Baicao 3-7 King, Terrace, Courtyard View"
       ]
-    },
-    {
-      cn:'Cunhe Collection', en:'Quiet Courtyards', stars:3.5, img:'images/r_cunhe.jpg',
-      title:'Cunhe Collection', enName:'The Cunhe',
-      desc:'Quietly set deep in the courtyards, Cunhe looks inward. A calm place to be alone, away from the noise of the world.',
-      types:[
-        ['Courtyard View King','Courtyard Room'],
-        ['Courtyard View Twin','Courtyard Twin'],
-        ['Tranquil Courtyard Twin','Quiet Courtyard Twin']
+    ]
+  },
+  {
+    "zh": "寸箐系列",
+    "en": "Cunjing Collection",
+    "img": "images/r_cunhe.jpg",
+    "subtitleZh": "安静庭院",
+    "subtitleEn": "Quiet Courtyards",
+    "stars": 3.5,
+    "descZh": "藏在庭院深处，寸箐的视线向内。它远离喧闹，留下一处适合独处的安静空间。",
+    "descEn": "Quietly set deep in the courtyards, Cunjing looks inward. A calm place to be alone, away from the noise of the world.",
+    "rooms": [
+      [
+        "寸箐·庭院景观大床房",
+        "Cunjing King, Courtyard View"
+      ],
+      [
+        "寸箐·静谧庭院双床房",
+        "Cunjing Twin, Quiet Courtyard"
       ]
-    },
-    {
-      cn:'Fensong Collection', en:'Pine &amp; Light', stars:3, img:'images/r_fensong.jpg',
-      title:'Fensong Collection', enName:'The Fensong',
-      desc:'Pine shadows divide the windows as light falls through the gaps. Restrained and precise, Fensong gives the room back to rest.',
-      types:[
-        ['Tranquil Courtyard King','Quiet Courtyard Room']
+    ]
+  },
+  {
+    "zh": "分松系列",
+    "en": "Fensong Collection",
+    "img": "images/r_fensong.jpg",
+    "subtitleZh": "松影与光",
+    "subtitleEn": "Pine & Light",
+    "stars": 3,
+    "descZh": "松影切分窗面，光从缝隙间落下。克制而准确，分松把房间重新还给休息。",
+    "descEn": "Pine shadows divide the windows as light falls through the gaps. Restrained and precise, Fensong gives the room back to rest.",
+    "rooms": [
+      [
+        "分松·1-5 静谧庭院大床房",
+        "Fensong 1-5 King, Quiet Courtyard"
       ]
-    },
-    {
-      cn:'Tonglin Courtyard Villa', en:'A private home in the trees', stars:3, img:'images/r_tonglin.jpg',
-      title:'Tonglin Courtyard Villa', enName:'Garden Courtyard Villa',
-      desc:'A detached three-bedroom villa with its own courtyard and living room. A mountain home made for family and close friends.',
-      types:[
-        ['Detached Courtyard Villa · 3 Bedrooms','Private Villa']
+    ]
+  },
+  {
+    "zh": "园林庭院别墅",
+    "en": "Garden Courtyard Villa",
+    "img": "images/r_tonglin.jpg",
+    "subtitleZh": "林间的私人之家",
+    "subtitleEn": "A private home in the trees",
+    "stars": 3,
+    "descZh": "拥有独立庭院与起居室的三卧别墅，是为家人和亲密朋友准备的一座山中之家。",
+    "descEn": "A detached three-bedroom villa with its own courtyard and living room. A mountain home made for family and close friends.",
+    "rooms": [
+      [
+        "园林庭院景观独栋别墅（三室一厅）",
+        "Standalone Villa with Garden Courtyard (3BR / 1LR)"
       ]
-    }
-  ];
-  if(isZh){
-    STAYS = [
-      {cn:'落哲系列',en:'全景山海',stars:5,img:'images/r_luozhe.jpg',title:'落哲系列',enName:'The Luozhe',desc:'位于崖边，以180°视角展开苍山与洱海。落哲是住在风景之上最舒展、最从容的一种方式。',types:[['180°山海旗舰大床房','全景旗舰房'],['阳台山海大床房','阳台景观房'],['私享露台山海大床房','私享露台房']]},
-      {cn:'碧苑系列',en:'水景与星光',stars:5,img:'images/r_biyuan.jpg',title:'碧苑系列',enName:'The Biyuan',desc:'水景露台与星空茶室，让光线在水面与天空之间流动。山与湖成为私人安静时刻的背景。',types:[['水景露台山海套房','水景露台套房'],['露台山海星空茶室套房','星空茶室套房']]},
-      {cn:'水长系列',en:'露台生活',stars:4.5,img:'images/r_shuichang.jpg',title:'水长系列',enName:'The Shuichang',desc:'宽阔的私人露台延伸了起居空间。山湖景色随季节变化，让每天的日常都成为一幕风景。',types:[['草坪露台山海大床房','草坪露台房'],['花园露台山海大床房','花园露台房'],['180°山海景观大床房','全景房']]},
-      {cn:'百草系列',en:'森林与花园',stars:4,img:'images/r_baicao.jpg',title:'百草系列',enName:'The Baicao',desc:'私人露台向森林打开，植物的气息进入室内。简单、温暖，靠近居住最本质的样子。',types:[['私享露台山海大床房','私享露台房'],['露台山海大床房','露台景观房'],['露台庭院大床房','庭院房']]},
-      {cn:'村禾系列',en:'安静庭院',stars:3.5,img:'images/r_cunhe.jpg',title:'村禾系列',enName:'The Cunhe',desc:'藏在庭院深处，村禾的视线向内。它远离喧闹，留下一处适合独处的安静空间。',types:[['庭院景观大床房','庭院大床房'],['庭院景观双床房','庭院双床房'],['静谧庭院双床房','静谧双床房']]},
-      {cn:'分松系列',en:'松影与光',stars:3,img:'images/r_fensong.jpg',title:'分松系列',enName:'The Fensong',desc:'松影切分窗面，光从缝隙间落下。克制而准确，分松把房间重新还给休息。',types:[['静谧庭院大床房','静谧庭院房']]},
-      {cn:'桐林庭院别墅',en:'林间的私人之家',stars:3,img:'images/r_tonglin.jpg',title:'桐林庭院别墅',enName:'Garden Courtyard Villa',desc:'拥有独立庭院与起居室的三卧别墅，是为家人和亲密朋友准备的一座山中之家。',types:[['独栋庭院别墅 · 三卧室','私人别墅']]}
-    ];
+    ]
   }
+];
+  var STAYS = ROOM_COLLECTIONS.map(function(s){
+    return {
+      cn:isZh ? s.zh : s.en, en:isZh ? s.subtitleZh : s.subtitleEn,
+      title:isZh ? s.zh : s.en, enName:s.en, stars:s.stars, img:s.img,
+      desc:isZh ? s.descZh : s.descEn,
+      types:s.rooms.map(function(room){ return [isZh ? room[0] : room[1]]; })
+    };
+  });
 
   function starHTML(n){
     var full = Math.floor(n), half = (n - full) >= 0.5;
@@ -179,7 +260,7 @@
     function render(i){
       var s = STAYS[i];
       var typesHTML = s.types.map(function(t){
-        return '<li><span>'+t[0]+'</span><span class="en">'+t[1]+'</span></li>';
+        return '<li><span>'+t[0]+'</span></li>';
       }).join('');
       panel.innerHTML =
         '<div class="stay-figure"><img src="'+s.img+'" alt="'+s.cn+'"></div>'+
